@@ -25,7 +25,8 @@ def ex6():
     L = sorted([random.randint(0,10**6) for x in range(10**6)])
     S = L[random.randint(0,len(L))] # be sure that S is contained in L
     # in the real world: t print(True if S in L else False)
-    # in reality this is a sorting problem. Simple binary might work. Analyze this later plz
+    # Binary search should be fine for this problem. (20 times taking half is < 1, thus it should
+    # have matched the number for sure). 10^6 / (2^20)
     size = len(L)
     ptr = size
     for i in range(20):
