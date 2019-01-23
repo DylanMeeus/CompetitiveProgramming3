@@ -14,3 +14,33 @@ def ex4():
     rs = [random.randint(0,9) for x in range(100)]
     print(set(rs)) # set will keep them sorted and unique ;-)
 
+# 5. Given distinct birthdates as triples, sort them first by month, then day and then year. (asc)
+def ex5():
+    bdays = [(1, 7, 1992), (1, 11, 1988), (20,7,1934)]
+    print(sorted(bdays, key=lambda b: (b[1], b[0], b[2])))
+
+# 6. Given a list of (sorted) integers L of size 1M, determine if V exists in less than 20
+# comparisons
+def ex6():
+    L = sorted([random.randint(0,10**6) for x in range(10**6)])
+    S = L[random.randint(0,len(L))] # be sure that S is contained in L
+    # in the real world: t print(True if S in L else False)
+    # in reality this is a sorting problem. Simple binary might work. Analyze this later plz
+    size = len(L)
+    ptr = size
+    for i in range(20):
+        ptr = ptr // 2
+        if L[ptr] == S:
+            return True
+        elif len(L) == 0:
+            return False
+
+        if S > L[ptr]:
+            L = L[ptr:]
+        elif S < L[ptr]:
+            L = L[:ptr]
+    return False
+
+
+print(ex6())
+
