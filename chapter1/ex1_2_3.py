@@ -5,6 +5,7 @@
 # 3. given a date, determine the day of the week.
 import datetime
 import random
+from itertools import permutations
 def ex3():
     d = datetime.datetime.strptime("23/01/2019", "%d/%m/%Y")
     return d.strftime("%A")
@@ -43,5 +44,14 @@ def ex6():
     return False
 
 
-print(ex6())
+# 7. Generate all permutations of 'A', 'B', .. 'J'. 
 
+def ex7():
+    L = ['A','B','C','D','E','F','G','H','I','J']
+    print(list(permutations(L)))
+
+def ex11():
+    eq = "3 + (8 - 7.5) * 10 / 5 - (2+5*7)"
+    print(eval(eq))
+
+ex11()
